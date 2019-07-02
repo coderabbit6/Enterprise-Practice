@@ -1,0 +1,24 @@
+1.导入JAR
+2.配置相应的配置文件applicationContext.xml
+ <bean></bean>
+ 
+3.编写相应业务逻辑文件。
+
+4.测试类。。
+   4-1） 加载配置文件。实例化Spring
+   ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+   4-2)
+   //相当于 HelloSpring helloSpring = new HelloSpring();
+   HelloSpring helloSpring = (HelloSpring) context.getBean("helloSpring");
+   
+   4-3)
+   
+   调用相应的方法进行业务功能
+   
+   <property name="who"> 没关系  private String who = null;
+   
+   <property name="who"> 有关系  public void setWho(String who);
+   
+   
+      
+   

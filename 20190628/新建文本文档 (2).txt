@@ -1,0 +1,7 @@
+#initialSize=8
+#maxActive=50
+#maxIdle=4
+#minIdle=10
+#maxWait=1000
+#removeAbandonedTimeout=200
+#removeAbandoned=true

@@ -1,0 +1,17 @@
+1.注解。要在实现类中声明。。不要在接口里声明，要在类上方声明，或方法上声明 或属性上
+
+2.UDaoImpl.java
+    @Repository  当前的这个类是一个DAO组件数据访问层
+
+3.UserServiceImpl.java
+
+
+  @Service("service") 声明的是业务层的实现类
+  @Autowired  声明业务层与DAO层的关联关系
+ 
+ 
+4.AroundLogger.java
+  @Aspect  声明当前类是增强类
+  @Around("execution(* service.UserService.*(..))")    声明切入点
+  
+5.修改配置文件。。

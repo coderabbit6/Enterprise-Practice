@@ -1,0 +1,52 @@
+三、jQuery DOM
+	4.创建节点
+		元素节点 - $(HTML代码)
+		可以使用这种方式将元素节点、文本节点及属性节点同时创建
+			文本节点-text()
+			属性节点-attr()
+			
+	5.删除节点
+		empty()-删除指定元素的所有后代元素（保留自身）
+		remove()-删除指定元素的所有元素（自身和后代）
+
+	6.插入节点
+		append()在被选元素的结尾插入内容（1.插入节点 2.插入原有节点-移动）
+		prepend()在被选元素的开头插入内容
+		before()在被选元素之前插入内容
+		after()在被选元素之后插入内容
+		
+		了解：
+		
+			appendTo() - 颠倒的 append() 
+			prependTo() - 颠倒的 prepend()
+			binsertBefore() - 颠倒的before()
+			insertAfter() - 颠倒的 after()
+			
+			例子： 把 $("#city>li:first") 插入到 #game
+			  $("#game").append($("#city>li:first"));
+			  $("#city>li:first").appendTo($("#game"));
+			  
+	7.替换节点
+		replaceWith() 将所有匹配元素替换成指定的元素
+		replaceAll() - 就是颠倒了的replaceWith()
+		$("#game").replaceWith($("#city>li:first"));
+		用$("#city>li:first")替换#game
+		
+		
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

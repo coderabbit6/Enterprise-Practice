@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	<!-- IOC -->
+
+	<bean id="dao" class="dao.impl.UserDaoImpl"></bean>
+	<bean id="service" class="service.impl.UserServiceImpl">
+		<!-- private UserDao dao; -->
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<!-- AOP -->
+	<!-- 声明增强方法所在的位置BEAN -->
+	<bean id="theLogger" class="aop.AroundLogger"></bean>
+	<!-- 配置切面 -->
+	<aop:config>
+		<!-- 定义切入点 -->
+		<aop:pointcut id="pointcut" expression="execution(* service.UserService.*(..))" />
+
+		<!-- 定义切面 指明用谁来增强 ref="theLogger" 指定为增强ID -->
+		<aop:aspect ref="theLogger">
+			<aop:around method="aroundLogger" pointcut-ref="pointcut"></aop:around>
+		</aop:aspect>
+	</aop:config>
+</beans>

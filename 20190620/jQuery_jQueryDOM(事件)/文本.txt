@@ -1,0 +1,23 @@
+四、jQuery事件
+	1.window.onload与$(document).ready()的区别？
+		window.onload
+			1）必须等待HTML页面的所有内容都加载完毕
+			2）一个HTML页面中只能存在一个window.onload
+			3)没有简写方式
+		
+		$(document).ready()
+			1）只需要等待HTML页面的DOM相关内容加载完毕
+			2）一个HTML页面中允许存在多个ready()
+			3)简写：
+				$().ready(function(){})
+				(开发常用) $(fumction(){})
+				
+	2.概念：
+		jQuery使用$()工厂函数，具有一个全局对象$除了jQuery以外
+		还有很多JS库都具有$这种约束与多个不同的其他库共存
+	
+	问题：在jq的代码中，不能再使用$符？为JQ对象自定义一个新的符号（简称）？
+	
+	解决：使用$.noConflict(),将$符的使用权移交给其他JS库
+	
+	看具体代码体现noConflict.HTML

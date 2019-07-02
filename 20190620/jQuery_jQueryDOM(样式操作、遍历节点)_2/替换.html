@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.3.1.js"></script>
+	</head>
+
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<button id="btn1">点击插入</button>
+	</body>
+
+</html>
+<script>
+	$(document).ready(function() {
+		$("#btn1").click(function() {
+			//replaceWith
+			//$("li:first").replaceWith($("<li>4</li>"));
+			
+			//移动替换的效果
+			//$("li:first").replaceWith($("li:last"));
+			
+			//移动替换的效果replaceAll 发现原有标签变少一个
+			//$("li:first").replaceAll($("li:last"));
+			
+			//颠倒的替换效果
+			//$("li:last").replaceAll($("li:first"));
+			
+			
+		});
+	})
+</script>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	<!-- IOC -->
+	<!-- 类中的service层与DAO层通过private UserDao dao;建立关联， 配置文件中id="dao"与id="service"通过<property 
+		name="dao" ref="dao"></property>建立关联 ref="dao"对应id="dao"，name="dao"对应的是类中UserDao 
+		dao -->
+	<bean id="dao" class="dao.impl.UserDaoImpl"></bean>
+	<bean id="service" class="service.impl.UserServiceImpl">
+		<!-- private UserDao dao; -->
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<!-- AOP -->
+
+	<!-- 声明增强方法所在的位置BEAN -->
+	<bean id="theLogger" class="aop.UserServiceLogger"></bean>
+	<!-- 配置切面 -->
+	<aop:config>
+		<!-- 定义切入点 -->
+		<aop:pointcut id="pointcut"
+			expression="execution(public int addNewUser(entity.User))" />
+		<!-- execution(public * addNewUser(entity.User)) * 表示匹配所有类型的返回值 -->
+		<!-- execution(public void *(entity.User)) * 表示匹配所有方法名 -->
+		<!-- execution(public void addNewUser(..)) .. 表示匹配所有参数个数和类型 -->
+		<!-- execution(* com.service.*.*(..)) com.service 代表包名， 匹配com.service包下所有的类和所有的方法。 -->
+		<!-- execution(* com.service..*.*(..)) com.service 代表包名， 匹配com.service包及其子包下所有的类和所有的方法。 -->
+
+		<!-- 定义切面 指明用谁来增强 ref="theLogger" 指定为增强ID -->
+		<aop:aspect ref="theLogger">
+			<!-- 前置增强，对应类中的前置方法 -->
+			<aop:before method="before" pointcut-ref="pointcut"></aop:before>
+
+			<!-- 后置增强，对应类中的后置方法 retruning="result" 对应增强方法中的Object result -->
+			<aop:after-returning method="afterReturning"
+				pointcut-ref="pointcut" returning="result" />
+		</aop:aspect>
+	</aop:config>
+</beans>

@@ -1,0 +1,9 @@
+HttpSession session = request.getSession();
+
+		User user = (User) session.getAttribute(Contans.USER_SESSION);
+
+		if (null == user) {
+			response.sendRedirect(request.getContextPath() + "/401.jsp");
+			return false;
+		}
+		return true;

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.3.1.js"></script>
+		<style type="text/css">
+			.ght * {
+				display: block;
+				border: 1px solid red;
+				color: red;
+				padding: 5px;
+				margin: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		body
+		<div class="ght">
+			ght
+			<div id="div1">
+				div1
+				<ul>
+					ul
+					<li>
+						li
+						<span>span</span>
+					</li>
+				</ul>
+			</div>
+			<div id="div2">
+				div2
+				<p>p
+					<span>span</span>
+				</p>
+			</div>
+			<div id="div3">
+				div3
+				<ul>
+					ul
+					<li>
+						li
+						<span>span</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script>
+	$(document).ready(function() {
+//				$("#div1 span").parent().css({
+//					"color": "blue",
+//					"border": "2px solid blue"
+//				});
+
+		//一直向上直到HTML元素为止
+//				$("#div2 span").parents().css({
+//					"color": "blue",
+//					"border": "2px solid blue"
+//				});
+
+		//到DIV3为止。。
+		$("#div3 span").parentsUntil("#div3").css({
+			"color": "blue",
+			"border": "2px solid blue"
+		});
+	})
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<form action="#" onsubmit="return check() ">
+			username：<input type="text" name="username" id="username" />
+			<div id="usercheck"></div>
+			<br> userpwd：
+			<input type="password" name="userpwd" id="userpwd" /><br> submit：
+			<input type="submit" value="提交" />
+		</form>
+	</body>
+
+</html>
+<script type="text/javascript">
+	function check() {
+		 
+		var userpwd = document.getElementById("userpwd");
+		 
+		if(userpwd.value.length!=6) {
+			alert("密码要为6位数字");
+			userpwd.focus();
+			userpwd.select();
+			return false;
+		}
+		
+		return true;
+
+	}
+</script>

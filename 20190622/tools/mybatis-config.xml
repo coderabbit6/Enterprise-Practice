@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 節點的配置是有順序的。。。。。。。 -->
+<!-- 通过这个配置文件完成mybatis与数据库的连接 -->
+<configuration>
+	<!-- 引入 同级目录下的 database.properties 文件 -->
+	<properties resource="database.properties" />
+	<!-- <properties resource="databaseOracle.properties" /> -->
+	<!-- 配置mybatis的log实现为LOG4J -->
+	<settings>
+		<setting name="logImpl" value="LOG4J" />
+	</settings>
+	<!-- environments中的environment可以指定多套运行环境， default="development"属性对应<environment 
+		id="development">中的ID属性，书写内容不限定 意义为默认指定那一套运行环境 -->
+	<environments default="development_orcl">
+		<environment id="development_mysql">
+			<!--配置事务管理，采用JDBC的事务管理 -->
+			<transactionManager type="JDBC"></transactionManager>
+			<!-- 配置数据源：POOLED:mybatis自带的数据源，JNDI:基于tomcat的数据源 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${user}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+
+		<environment id="development_orcl">
+			<!--配置事务管理，采用JDBC的事务管理 -->
+			<transactionManager type="JDBC"></transactionManager>
+			<!-- 配置数据源：POOLED:mybatis自带的数据源，JNDI:基于tomcat的数据源 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${user}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 将mapper文件加入到配置文件中 -->
+	<mappers>
+		<mapper resource="cn/smbms/dao/user/User_mysqlMapper.xml" />
+	<!-- 	<mapper resource="cn/smbms/dao/user/Emp_oracleMapper.xml" /> -->
+	</mappers>
+
+</configuration>

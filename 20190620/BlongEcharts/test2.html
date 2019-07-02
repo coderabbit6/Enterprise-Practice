@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#chartmain{
+				width:600px; 
+				height: 400px;
+				border: 2px solid red;
+				margin-top: 200px;
+				margin-left: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript" src="js/echarts.common.min.js"></script>
+		<div id="chartmain"></div>
+		<script type="text/javascript">
+			var option = {
+				title: {
+					text: 'ECharts 数据统计',
+					left: 'right',
+				},
+				series: [{
+					name: '访问量',
+					type: 'pie', //饼状图
+					radius: '80%',//圆的半径。也就是圆的大小
+					data: [{
+							value: 300,
+							name: 'Java'
+						},
+						{
+							value: 200,
+							name: 'IOS'
+						},
+						{
+							value: 300,
+							name: 'Android'
+						},
+						{
+							value: 100,
+							name: 'Ohter'
+						},{
+							value: 100,
+							name: 'Python'
+						}
+					]
+				}]
+			};
+			//初始化echarts实例
+			var myChart = echarts.init(document.getElementById('chartmain'));
+
+			//使用制定的配置项和数据显示图表
+			myChart.setOption(option);
+		</script>
+	</body>
+
+</html>

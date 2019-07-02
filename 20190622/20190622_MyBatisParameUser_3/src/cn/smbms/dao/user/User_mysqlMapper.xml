@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.smbms.dao.user.User_mysqlMapper">
+
+
+	<!-- 对象入参 -->
+	<select id="getUserList" resultType="User" parameterType="User">
+		select
+		* from smbms_user where userName like CONCAT ('%',#{userName},'%') and
+		userRole =#{userRole}
+	</select>
+
+	<!-- MAP入参 -->
+	<select id="getUserListByMap" resultType="User" parameterType="map">
+		select * from smbms_user where userName like CONCAT ('%',#{uName},'%')
+		and userRole =#{uRole}
+	</select>
+
+
+
+		<!-- 当数据库字段与POJO对象里面的变量不一致的时候。 需要有用到resultMap标签来映射
+		result子标签中  property=""  对应的是POJO类中的属性（变量名）  column=""  对应数据库中的字段 -->
+	<resultMap type="User" id="userlist">
+		<result property="id" column="id"/>
+		<result property="userCode" column="userCode"/>
+		<result property="userName" column="userName"/>
+		<result property="gender" column="gender"/>
+		<result property="phone" column="phone"/>
+		<result property="userRole" column="userRole"/>
+		<result property="userRoleName" column="roleName"/>
+	</resultMap>
+
+
+
+	<!-- 多表查询 -->
+	<select id="getUserListTwotable" resultMap="userlist"
+		parameterType="User">
+		SELECT u.*,r.roleName FROM smbms_user u,smbms_role r
+		WHERE u.userName LIKE CONCAT('%',#{userName},'%') AND u.userRole=#{userRole} AND r.id=u.userRole
+	</select>
+
+
+</mapper>

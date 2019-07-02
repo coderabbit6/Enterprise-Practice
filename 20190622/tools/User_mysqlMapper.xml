@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper可以有多个。namespace用来区分不同的mapper -->
+<mapper namespace="cn.smbms.dao.user.User_mysqlMapper">
+	<select id="count" resultType="int">
+		select count(1) from smbms_user
+	</select>
+	
+	
+	<select id="countrole" resultType="int">
+		select count(1) from smbms_user where userRole=1
+	</select>
+</mapper>
+
+
+
+
+

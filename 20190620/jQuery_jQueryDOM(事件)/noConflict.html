@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.3.1.js"></script>
+	</head>
+
+	<body>
+		<p>123</p>
+		<button>按钮</button>
+	</body>
+
+</html>
+<script>
+	//重新定义一个新的前导符
+	var jq = $.noConflict();
+	jq(function() {
+		jq("button").click(function() {
+			jq("p").hide();
+		})
+	})
+</script>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       
+	http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+	<servlet>
+		<servlet-name>webnameform</servlet-name>
+		<servlet-class>ServletTest.webnameformservlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>webnameform</servlet-name>
+		<url-pattern>/formwebservlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<filter>
+		<filter-name>filterweb</filter-name>
+		<filter-class>FilterPack.FilterText</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>filterweb</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+
+</web-app>
+ 

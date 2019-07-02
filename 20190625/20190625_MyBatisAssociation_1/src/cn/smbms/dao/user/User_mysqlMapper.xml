@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.smbms.dao.user.User_mysqlMapper">
+
+	<!-- 当数据库字段与POJO对象里面的变量不一致的时候。 需要有用到resultMap标签来映射 result子标签中 property="" 
+		对应的是POJO类中的属性（变量名） column="" 对应数据库中的字段 -->
+	<!-- 对应显示的是User.java中的内容 -->
+	<!-- <resultMap type="User" id="userlist"> <id property="id" column="id" 
+		/> <result property="userCode" column="userCode" /> <result property="userName" 
+		column="userName" /> <result property="gender" column="gender" /> <result 
+		property="phone" column="phone" /> <result property="userRole" column="userRole" 
+		/> <result property="userRoleName" column="roleName" /> 映射多个字段信息 javaType="" 
+		指的是Role.java这个POJO类 property=""值的是User.java中定义好的 private Role role <association 
+		property="role" javaType="Role" resultMap="roleResult" /> </resultMap> -->
+
+
+	<!-- 对应显示的是Role.java中的内容 -->
+	<!-- <resultMap type="Role" id="roleResult"> <id property="id" column="r_id" 
+		/> <result property="roleCode" column="roleCode" /> <result property="roleName" 
+		column="roleName" /> <result property="createBy" column="createdBy" /> </resultMap> -->
+
+	<!-- 多表查询 -->
+	<!-- <select id="getUserListTwotable" resultMap="userlist" parameterType="Integer"> 
+		select u.*,r.id as r_id,r.roleCode,r.roleName,r.createdBy from smbms_user 
+		u,smbms_role r where u.userRole=#{userRole} and u.userRole=r.id </select> -->
+
+
+
+
+
+	<!-- collection -->
+	<resultMap type="User" id="userAddressResult">
+		<id property="id" column="id" />
+		<result property="userCode" column="userCode" />
+		<result property="userName" column="userName" />
+
+		<!-- 返回多个记录的时候1->N property="addressList"对应User.java中的属性addressList ofType="Address" 
+			对应的是POJO类Address.java -->
+		<collection property="addressList" ofType="Address">
+			<id property="id" column ="a_id"/>
+			<result property="postCode" column="postCode" />
+			<result property="contact" column="contact" />
+			<result property="addressDesc" column="addressDesc" />
+			<result property="tel" column="tel" />
+		</collection>
+	</resultMap>
+
+
+
+
+	<select parameterType="Integer" id="getAddressListByUserId"
+		resultMap="userAddressResult">
+		SELECT u.*,a.id AS
+		a_id,a.contact,a.addressDesc,a.postCode,a.tel
+		FROM smbms_user
+		u,smbms_address a
+		WHERE u.id = a.userid AND u.id = #{id} 
+	</select>
+
+
+
+
+
+
+
+
+
+
+</mapper>

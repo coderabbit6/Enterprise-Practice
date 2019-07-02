@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<textarea id="userInput" rows="5" cols="30"></textarea>
+		<textarea id="filterText" rows="5" cols="30"></textarea><br>
+		<input id="btn" type="button" value="过滤文本">
+	</body>
+
+</html>
+<script>
+	window.onload = function() {
+		var userInput = document.getElementById("userInput");
+		var filterText = document.getElementById("filterText");
+		var btn = document.getElementById("btn");
+		btn.onclick = function() {
+			var reg = /赌博|暴力运动|东突/g;
+			filterText.value = userInput.value.replace(reg, "***");
+		}
+	}
+</script>

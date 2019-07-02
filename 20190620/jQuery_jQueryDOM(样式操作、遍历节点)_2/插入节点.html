@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.3.1.js"></script>
+	</head>
+
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<button id="btn1">点击插入</button>
+	</body>
+
+</html>
+<script>
+	$(document).ready(function() {
+
+		$("#btn1").click(function() {
+			//插入原有节点-移动
+			$("ul").append($("li:first"));
+
+			//插入新节点
+			//$("ul").append($("<li>4</li>"));
+
+			//after
+			//$("ul").after($("<p>4</p>"));
+
+			//append
+			//$("ul").append($("<p>4</p>"));
+
+			//prepend
+			//$("ul").prepend($("<p>4</p>"));
+
+			//before
+			//$("ul").before($("<p>4</p>"));
+
+			//appendTo
+			//$("li:first").appendTo($("ul"));
+		});
+	})
+</script>

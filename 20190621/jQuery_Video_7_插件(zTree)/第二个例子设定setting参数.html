@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--引入jQuery文件-->
+		<script src="js/jquery-3.3.1.js"></script>
+		<!--引入zTree插件文件-->
+		<script src="js/zTree/js/jquery.ztree.all.js"></script>
+		<!--引入zTree提供的样式文件-->
+		<link rel="stylesheet" href="js/zTree/css/zTreeStyle/zTreeStyle.css" />
+	</head>
+
+	<body>
+		<ul id="treeDemo" class="ztree"></ul>
+	</body>
+
+</html>
+<script>
+	var setting = {
+		treeId:"treeDemo",
+		treeObj:$("#treeDemo"),
+		callback:{},
+		data:{
+			simpleData:{
+				enable:true,
+				idkey:"id",
+				pIdKey:"pid",
+				rootPId:0
+			}
+		}
+	}; 
+	var nodes = [ 
+				 {"id":1,"pid":0,"name":"北京市"},
+				 	{"id":11,"pid":1,"name":"海淀区"},
+				 		{"id":111,"pid":11,"name":"上地"},
+				 		{"id":112,"pid":11,"name":"中关村"},
+				 		{"id":113,"pid":11,"name":"西二旗"},
+				 	{"id":12,"pid":1,"name":"西城区"},
+				 	{"id":13,"pid":1,"name":"东城区"},
+				 	{"id":14,"pid":1,"name":"宣武区"},
+				 	
+				 {"id":2,"pid":0,"name":"天津市"},
+				 {"id":3,"pid":0,"name":"上海市"}
+				];
+
+	$(function() {
+		$.fn.zTree.init($("#treeDemo"), setting, nodes);
+	})
+</script> 

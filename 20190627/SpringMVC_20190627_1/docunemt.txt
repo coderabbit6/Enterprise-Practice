@@ -1,0 +1,13 @@
+步骤：
+1.导包  在SPRING基础上增加  spring-web.jar   spring-webmvc.jar
+
+2.配置文件
+	web.xml
+	Springmvc.xml
+
+3.创建控制器Controller来处理请求
+	BeanNameUrlHandlerMapping
+	
+4.创建View    JSp
+
+5.部署运行

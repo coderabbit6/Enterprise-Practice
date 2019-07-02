@@ -1,0 +1,28 @@
+1.创建工程，导包JAR
+2.创建配置文件 (除了web.xml以外其他名字可自定义。扩展名不能变)
+	web.xml
+	database.properties
+	log4j.properties(可选项)
+	mybatis-config.xml
+	applicationContext.xml
+	springmvc-servlet.xml
+	
+	mybatis-config.xml：                      别名   、全局性懒加载（可选项）
+	applicationContext.xml   ： 数据源相关配置、事物管理、配置SqlSessionFactoryBean、配置MapperScannerConfigurer
+	springmvc-servlet.xml    : 配置消息转换器、静态资源文件访问（例如：图片，jQuery等开发环境的相关文件）、配置拦截器、
+	web.xml                  : 加载Spring配置文件、配置Servlet处理类DispatcherServlet、配置字符集（可选项）
+	
+3.创建相关的包。存放类文件 三层开发模式DAO
+
+	pojo        数据对象模型
+	DAO         数据访问接口
+	Service     系统服务接口
+	Controller  前端控制层
+	TOOLS       存放系统工具类
+	
+	/WEB-INF/XXXX/  存放逻辑视图名回返的前端页面
+	/WebRoot/statics/   存放静态资源文件
+	
+	
+4.创建相关的JSP文件  
+	

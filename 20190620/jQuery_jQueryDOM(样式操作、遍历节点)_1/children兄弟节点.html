@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.3.1.js"></script>
+		<style type="text/css">
+			.ght * {
+				display: block;
+				border: 1px solid red;
+				color: red;
+				padding: 5px;
+				margin: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		body
+		<div class="ght">
+			ght
+			<div id="div00">
+				div00
+			</div>
+			<div id="div0">
+				div0
+			</div>
+			<div id="div1">
+				div1
+				<ul>
+					ul
+					<li>
+						li
+						<span>span</span>
+					</li>
+				</ul>
+			</div>
+			<div id="div2">
+				div2
+				<p>p
+					<span>span</span>
+				</p>
+			</div>
+			<div id="div3">
+				div3
+				<ul>
+					ul
+					<li>
+						li
+						<span>span</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script>
+	$(document).ready(function() {
+		//siblings
+	/*	$("#div2").siblings().css({
+			"color": "blue",
+			"border": "2px solid blue"
+		});*/
+
+		//siblings(selector)
+	/*	$("#div2").siblings("#div3").css({
+			"color": "blue",
+			"border": "2px solid blue"
+		});*/
+
+		//next
+	/*	$("#div1").next().css({
+			"color": "blue",
+			"border": "2px solid blue"
+		});*/
+
+		//prev
+			/*$("#div1").prev().css({
+				"color": "blue",
+				"border": "2px solid blue"
+			});*/
+
+		//prevALL()   div00也被选中
+		/*$("#div2").prevAll().css({
+			"color": "blue",
+			"border": "2px solid blue"
+		});*/
+
+		//prevUntil()    
+		/*$("#div2").prevUntil("#div00").css({
+			"color": "blue",
+			"border": "2px solid blue"
+		});*/
+
+		//nextAll()    
+	/*	$("#div0").nextAll().css({
+			"color": "blue",
+			"border": "2px solid blue"
+		});*/
+
+		//nextUntil()    
+		$("#div0").nextUntil("#div3").css({
+			"color": "blue",
+			"border": "2px solid blue"
+		});
+
+	})
+</script>

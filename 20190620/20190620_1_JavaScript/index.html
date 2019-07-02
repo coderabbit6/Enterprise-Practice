@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/new_file.js"></script>
+		<script type="text/javascript">
+			/*document.write("hello js");*/
+
+			var name = 1;
+			var age = "张三";
+
+			var x = 19;
+			document.write(isNaN(NaN) + "<br>");
+			document.write(isNaN(10) + "<br>");
+			var num1 = Number("hello");
+			var num2 = Number(" ");
+			var num3 = Number("0000");
+			var num4 = Number(false);
+			document.write(num1 + "<br>");
+			document.write(num2 + "<br>");
+			document.write(num3 + "<br>");
+			document.write(num4 + "<br>");
+			var num5 = parseInt("12234");
+			var num6 = parseInt("0xA");
+			var num7 = parseInt(070);
+			var num8 = parseInt("10011010", 2);
+			document.write(num5 + "<br>");
+			document.write(num6 + "<br>");
+			document.write(num7 + "<br>");
+			document.write(num8 + "<br>");
+
+			/*String*/
+
+			var str1 = "Hello";
+			document.write(str1.length + "<br>");
+			var age = 20;
+			var ageString = age.toString();
+			document.write(ageString + "<br>");
+			var found = true;
+			var foundString = found.toString();
+			document.write(foundString + "<br>");
+
+			var num = 10;
+			document.write(num.toString() + "<br>");
+			document.write(num.toString(2) + "<br>");
+			document.write(num.toString(8) + "<br>");
+			document.write(num.toString(16) + "<br>");
+
+			/*Array*/
+
+			var a1 = new Array();
+			var a2 = new Array(3);
+			var a3 = new Array(4, 'hello', new Date(), true, 4.5);
+
+			for(var i = 0; i < a3.length; i++) {
+				document.write(a3[i] + "<br>");
+			}
+
+			a2[0] = 1;
+			a2[1] = 4.7;
+			a2[2] = "你好";
+			for(var i = 0; i < a2.length; i++) {
+				document.write(a2[i] + "<br>");
+			}
+
+			var a1 = new Array(5);
+			console.log(a1.length)
+
+			/*循环,判断*/
+			var d = new Date();
+			var time = d.getHours();
+			document.write(time + "<br>");
+			if(time < 11) {
+				document.write("工作时间<br>");
+			} else {
+				document.write("休息时间<br>");
+			}
+
+			/*获取时间信息*/
+			var date1 = new Date();
+			document.write(date1.getDate() + "<br>");
+			document.write(date1.getDay() + "<br>");
+			document.write(date1.getMilliseconds() + "<br>");
+			document.write(date1.getMinutes() + "<br>");
+
+			/*面向对象基础*/
+
+			var person = {
+				name: "张三",
+				age: 20,
+				gender: "女",
+				eat: function(stuff) {
+					document.write("正在吃。：" + stuff);
+				}
+			}
+
+			document.write(person.name + "<br>");
+			person.height = 182;
+			document.write(person.height + "<br>");
+			delete person.height;
+			document.write(person.height + "<br>");
+			person.eat("苹果" + "<br>");
+
+			
+
+			/*	js表单验证 正则表达式*/
+
+			var strform = "jlakjs23423434%$#@$%234234sadf";
+			document.write(strform.match(/\d+/g) + "<br>");
+
+			var reg = new RegExp("tm");
+			var str = "htmlsd";
+			document.write(str.search(reg) + "<br>");
+
+			/*perl风格*/
+
+			var reg = /tm/;
+			var str = "htmlsd";
+			document.write(str.search(reg) + "<br>");
+
+			var reg = new RegExp("\\d");
+			var str = "lkjj3lkjklkj2klj";
+			document.write(str.search(reg) + "<br>");
+
+			var reg = /\d/;
+			var str = "lkjj3lkjklkj2klj";
+			document.write(str.search(reg) + "<br>");
+
+			/*模式修饰符*/
+
+			var reg = new RegExp("tm", "ig");
+			var str = "HTMLtm";
+			document.write(str.match(reg) + "<br>");
+
+			var str = "jkljkljajwefjkkjkdaef";
+			var reg = /a/g;
+			document.write(str.replace(reg, "*") + "<br>");
+			
+			
+			
+			
+			
+			/*this的使用*/
+
+			var x = 88;
+			var obj = {
+				x: 33,
+				doit: function() {
+					document.write("你好:" + this.x + "<br>")
+				}
+			}
+			var fn = obj.doit;
+			var obj2 = {
+				x: 44,
+				doit: fn
+			}
+			document.write("<br>");
+			obj2.doit();
+			document.write(obj2.x + "<br>");
+			document.write("<br>");
+			var f = obj2.doit;
+			f();
+		</script>
+	</head>
+
+	<body>
+
+		<button onclick="javascript:alert('弹出信息框');">弹出</button><br>
+		<button onclick="javascript:document.write('页面输出内容');">页面输出</button><br>
+	</body>
+
+</html>

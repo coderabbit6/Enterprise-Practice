@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.3.1.js"></script>
+		<style>
+			p{
+				border: 1px solid red;
+				height: 200px;
+				width: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p id="p1">
+			remove()
+			<span>1</span>
+			<span>1</span>
+			<span>1</span>
+		</p>
+		<p id="p2">
+			empty()
+			<span>1</span>
+			<span>1</span>
+			<span>1</span>
+		</p>
+		<button id="btn1">remove()</button>
+		<button id="btn2">empty()</button>
+	</body>
+
+</html>
+<script>
+	$(document).ready(function(){
+		//remove()
+		$("#btn1").click(function(){
+			$("#p1").remove();
+		});
+		
+		//empty()
+		$("#btn2").click(function(){
+			$("#p2").empty();
+		});
+	})
+</script>

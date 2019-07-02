@@ -1,0 +1,40 @@
+1.www.bootcss.com
+2.CDN 
+3.下载开发环境，导入到工程
+4.环境搭建
+ 		<!--BOOT核心文件css-->
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+
+		<!--主题文件（可选项）-->
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+
+		<!--引入jquery开发环境 要在bootstrap.min.js之前引入-->
+		<script src="js/jquery-3.3.1.js"></script>
+
+		<!--引入boot核心js文件-->
+		<script src="js/bootstrap.min.js"></script>
+		
+5.对浏览器的支持
+   Chrome  :  Android   IOS  MacOSX  Windows
+   Firefox :  Android   N/A  MacOSX  Windows
+   IE      :  N/A       N/A  N/A     Windows 
+   Opera   :  不支持             不支持  MacOSX  Windows
+       苹果            ：                             IOS  MacOSX 
+       
+6.移动设备优先
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1"></meta>
+		
+
+超小屏幕： 小于768px
+小屏幕  ：  大于等于 768px
+中等屏幕： 大于992px      (普通的桌面显示器)
+大屏幕  ：  大于等于1200px   (大的桌面显示器)
+
+7.栅格系统：    12列
+
+	超小屏幕：col-xs-（1-12）
+	小屏幕  ：  col-sm-（1-12）
+	中等屏幕：col-md-(1-12)
+	大屏幕 ：  col-lg-(1-12)
+	

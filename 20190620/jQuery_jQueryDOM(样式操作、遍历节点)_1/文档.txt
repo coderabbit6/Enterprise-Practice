@@ -1,0 +1,41 @@
+三、jQuery DOM
+	2.样式操作：
+		2.1 attr("class",className)  获取和设置
+		
+		2.2 addClass("")  追加样式
+		
+		2.3 removeClass()  默认情况下，删除所有样式
+		    removeClass("className")  传递className参数，删除指定样式
+		    
+		2.4 toggleClass("")
+			只能接受一个参数(指定一个样式名称)
+			是在没有样式与指定样式之间进行切换
+			
+		2.5 hasClass("")
+			判断当前元素是否含有指定样式
+			结果值： true false
+			
+		2.6 css("propertyname","value")
+			css({"propertyname":"value","propertyname":"value"})
+			propertyname:CSS的属性名
+			value:CSS的属性值
+			css("") 读取CSS的值
+			css("","") 设置多个样式
+
+	3.遍历节点，selector:选择器
+		父节点
+			parent() 方法返回被选元素的直接父元素。
+			parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素（<html>）
+			parentsUntil(selector) 方法返回介于两个给定元素之间的所有祖先元素
+			
+		子节点
+			children()/children(selector) 方法返回被选元素的所有直接子元素
+			find(selector) 方法-返回被选元素的后代元素，一路向上直到最后一个后代
+			
+		兄弟节点
+			next() 方法返回被选元素的下一个同胞元素。
+			nextAll() 方法返回被选元素的所有跟随的同胞元素
+			nextUntil(selector) 方法返回介于两个给定参数之间的所有跟随的同胞元素
+			prev(),prevAll()以及prevUntil(selector) 方法的工作方式与上面的方法类似，
+			只不过方法相反而已：他们返回的是前面的同胞元素（在DOM树中沿着同胞元素向后遍历，而不是向前）
+			siblings()/siblings(selector) 方法返回被选元素的所有同胞元素

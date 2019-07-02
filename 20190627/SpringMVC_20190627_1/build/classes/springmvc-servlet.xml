@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+	<!-- 接收VIEW提交过来的请求 index.html -->
+
+	<bean name="/index.html" class="cn.smbms.controller.indexController" />
+
+	<!-- 完成逻辑视图名的对应关系。对跳转的逻辑视图名进行解析处理 jsp目前返回的是indexa.jsp-->
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 逻辑视图名的前缀 -->
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+
+		<!-- 逻辑视图名的后缀 -->
+		<property name="suffix" value=".jsp"/>
+
+	</bean>
+
+
+
+</beans>

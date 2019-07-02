@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//1.创建XMLHttpRequest核心对象
+	function getXhr() {
+		var xhr = null;
+		if(window.XMLHttpRequest) {
+			//IE以外的其他浏览器
+			xhr = new XMLHttpRequest();
+		} else {
+			//兼容IE浏览器
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		}
+		return xhr;
+	}
+
+	//2. 注册监听
+
+	function getAjax(url, fn) {
+		var xhr = getXhr();
+		//3. 建立链接
+		xhr.open("GET", url, true);
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState == 4 && xhr.status == 200) {
+				//接收数据并且转换成JSON格式
+				var datajson = eval("(" + xhr.responseText + ")");
+				//回调函数
+				fn(datajson);
+			}
+		}
+		//4. 发送数据
+		xhr.send(null);
+
+	}
+
+	getAjax("data/data1.json", function(data) {
+		console.log(data);
+	});
+</script>

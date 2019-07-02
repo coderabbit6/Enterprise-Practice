@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 注解扫描 扫描spring包中的注解 -->
+	<context:component-scan base-package="spring"></context:component-scan>
+	<!--创建dao层的对象 -->
+	<bean id="studentDao" class="spring.dao.impl.StudentDao" />
+	<!--创建service层对象 -->
+	<bean id="studentService" class="spring.service.impl.StudentService" />
+	<!--配置数据源 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/spring" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
+	<!--创建JdbcTemplate对象 注入dataSource -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>
+ 
